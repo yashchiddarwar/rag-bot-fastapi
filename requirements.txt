@@ -1,7 +1,7 @@
 fastapi==0.108.0
 uvicorn==0.25.0
 pinecone-client==3.2.2
-openai==1.6.1
+openai>=1.24.0
 langchain==0.1.20
 langchain-openai==0.1.7
 langchain-pinecone==0.1.0
