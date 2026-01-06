@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise RAG System - AI-Powered Knowledge Retrieval</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">🤖</div>
+                <div>
+                    <h1>Enterprise RAG</h1>
+                    <div class="tagline">AI Knowledge Retrieval System</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h3>Technology Stack</h3>
+            <div class="tech-item">
+                <span class="tech-badge">⚡</span>
+                <span class="tech-name">FastAPI</span>
+                <span class="tech-version">0.108</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-badge">🌲</span>
+                <span class="tech-name">Pinecone</span>
+                <span class="tech-version">Vector DB</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-badge">🤖</span>
+                <span class="tech-name">LangChain</span>
+                <span class="tech-version">0.1.0</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-badge">🧠</span>
+                <span class="tech-name">Gemma 3</span>
+                <span class="tech-version">12B</span>
+            </div>
+            <div class="tech-item">
+                <span class="tech-badge">🔌</span>
+                <span class="tech-name">OpenRouter</span>
+                <span class="tech-version">API</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <h3>System Metrics</h3>
+            <div class="stat-item">
+                <span class="stat-label">Documents Indexed</span>
+                <span class="stat-value">12</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Vector Embeddings</span>
+                <span class="stat-value">1,536D</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Retrieval Method</span>
+                <span class="stat-value">Semantic</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Chunk Strategy</span>
+                <span class="stat-value">Recursive</span>
+            </div>
+        </div>
+
+        <div class="features">
+            <h3>Key Features</h3>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span class="feature-text">Production-ready REST API</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span class="feature-text">Vector similarity search</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span class="feature-text">Context-aware responses</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span class="feature-text">Source attribution</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span class="feature-text">Cloud-native deployment</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span class="feature-text">CORS-enabled architecture</span>
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="footer-btn" onclick="showKnowledgeBase(event)">
+                <span>📚</span>
+                <span>Browse Knowledge Base</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-top">
+                <h2>Intelligent Q&A Assistant</h2>
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>System Online</span>
+                </div>
+            </div>
+            <div class="header-description">
+                Ask technical questions about backend development, microservices, databases, and best practices. 
+                Powered by RAG (Retrieval-Augmented Generation) for accurate, context-aware responses.
+            </div>
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+            <div class="empty-state">
+                <div class="empty-state-icon">💬</div>
+                <h2>Start a Conversation</h2>
+                <p>This AI assistant is trained on backend engineering documentation including Spring Boot, microservices architecture, SQL optimization, and deployment strategies.</p>
+                <div class="suggestions-grid">
+                    <div class="suggestion" onclick="askQuestion('What are the best practices for caching in backend systems?')">
+                        <div class="suggestion-icon">💾</div>
+                        <div class="suggestion-text">Caching strategies and best practices</div>
+                    </div>
+                    <div class="suggestion" onclick="askQuestion('How does database connection pooling work?')">
+                        <div class="suggestion-icon">🔌</div>
+                        <div class="suggestion-text">Database connection pooling explained</div>
+                    </div>
+                    <div class="suggestion" onclick="askQuestion('Explain microservice deployment strategies')">
+                        <div class="suggestion-icon">🚀</div>
+                        <div class="suggestion-text">Microservice deployment patterns</div>
+                    </div>
+                    <div class="suggestion" onclick="askQuestion('What are common SQL join failures and how to avoid them?')">
+                        <div class="suggestion-icon">🔍</div>
+                        <div class="suggestion-text">SQL join optimization techniques</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="questionInput" 
+                    placeholder="Ask a technical question..." 
+                    onkeypress="handleKeyPress(event)"
+                >
+            </div>
+            <button onclick="sendQuestion()" id="sendButton">Send Query</button>
+        </div>
+    </div>
+
+    <!-- Modal for document viewing -->
+    <div class="modal" id="documentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Document</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                Loading...
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
